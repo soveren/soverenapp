@@ -1,0 +1,7 @@
+{
+  "name": "soverenapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
