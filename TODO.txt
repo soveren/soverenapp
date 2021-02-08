@@ -1,0 +1,7 @@
+
+Tabs:
+News
+Favorites
+Search
+Storefront
+Profile
