@@ -43,11 +43,10 @@ export default defineComponent({
   name: 'Tabs',
   components: { IonLabel, IonTabs, IonTabBar, IonTabButton, IonIcon, IonPage },
   data() {
-    return { currentTab: 'hello' }
+    return { currentTab: '' }
   },
   methods: {
     afterTabChange(e: any) {
-      console.log('afterTabChange e', e);
       this.currentTab = e.tab
     }
   },
