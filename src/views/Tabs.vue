@@ -4,8 +4,8 @@
       <ion-tab-bar slot="bottom">
 
         <ion-tab-button tab="tab1" href="/tabs/tab1">
-          <ion-icon :icon="(currentTab==='tab1') ? planet : planetOutline" />
-          <ion-label>Updates</ion-label>
+          <ion-icon :icon="(currentTab==='tab1') ? newspaper : newspaperOutline" />
+          <ion-label>News</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="tab2" href="/tabs/tab2">
@@ -35,7 +35,7 @@
 
 <script lang="ts">
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage } from '@ionic/vue';
-import { planet, planetOutline, bagAdd, bagAddOutline, search, searchOutline, storefront, storefrontOutline,
+import { newspaper, newspaperOutline, planet, planetOutline, bagAdd, bagAddOutline, search, searchOutline, storefront, storefrontOutline,
   personCircle, personCircleOutline } from 'ionicons/icons';
 import { defineComponent } from 'vue';
 
@@ -52,7 +52,7 @@ export default defineComponent({
   },
   setup() {
     return {
-      planet, planetOutline, bagAdd, bagAddOutline, search, searchOutline, personCircle, personCircleOutline, storefront, storefrontOutline
+      newspaper, newspaperOutline, planet, planetOutline, bagAdd, bagAddOutline, search, searchOutline, personCircle, personCircleOutline, storefront, storefrontOutline
     }
   }
 })
