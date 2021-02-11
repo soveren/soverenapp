@@ -28,12 +28,12 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Tab3.vue')
       },
       {
-        path: 'tab4',
-        component: () => import('@/views/Tab4.vue')
+        path: 'store',
+        component: () => import('@/views/store.vue')
       },
       {
-        path: 'tab5',
-        component: () => import('@/views/Tab5.vue')
+        path: 'profile',
+        component: () => import('@/views/profile.vue')
       }
     ]
   }

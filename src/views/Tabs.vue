@@ -18,13 +18,13 @@
           <ion-label>Add</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="tab4" href="/tabs/tab4">
-          <ion-icon :icon="(currentTab==='tab4') ? storefront : storefrontOutline" />
+        <ion-tab-button tab="store" href="/tabs/store">
+          <ion-icon :icon="(currentTab==='store') ? storefront : storefrontOutline" />
           <ion-label>Store</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="tab5" href="/tabs/tab5">
-          <ion-icon :icon="(currentTab==='tab5') ? personCircle : personCircleOutline" />
+        <ion-tab-button tab="profile" href="/tabs/profile">
+          <ion-icon :icon="(currentTab==='profile') ? personCircle : personCircleOutline" />
           <ion-label>Profile</ion-label>
         </ion-tab-button>
 
