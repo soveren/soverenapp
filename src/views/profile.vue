@@ -23,7 +23,7 @@
         </ion-avatar>
         <h3>Sovereign Unicorn</h3>
 
-        <ion-segment @ionChange="segmentChanged($event)" value="purchases" >
+        <ion-segment @ionChange="segmentChanged($event)" value="purchases" class="ion-margin-top">
 
           <ion-segment-button value="wishes">
             <ion-label>Wishes</ion-label>
@@ -47,6 +47,8 @@
 
         </ion-segment>
 
+        <div>{{segment}}</div>
+
       </div>
 
 
@@ -62,15 +64,20 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'profile',
   components: { IonButtons, IonButton, IonSegment, IonSegmentButton, IonLabel, IonIcon, IonAvatar, IonHeader, IonToolbar, IonTitle, IonContent, IonPage },
-  setup() {
-    const editProfile = () => {
+  data() {
+    return { segment:'wishes' }
+  },
+  methods: {
+    segmentChanged(e: any) {
+      console.log('segmentChanged', e)
+      this.segment = e.detail.value
+    },
+    editProfile() {
       console.log('editProfile clicked!');
     }
-    const segmentChanged = (e: any) => {
-      console.log('segmentChanged', e);
-    }
-    return { createOutline, heart, basket, star, storefront,
-      editProfile, segmentChanged };
+  },
+  setup() {
+    return { createOutline, heart, basket, star, storefront };
   }
 })
 </script>

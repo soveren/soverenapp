@@ -20,7 +20,7 @@
 
         <ion-tab-button tab="store" href="/tabs/store">
           <ion-icon :icon="(currentTab==='store') ? storefront : storefrontOutline" />
-          <ion-label>Store</ion-label>
+          <ion-label>Your Store</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="profile" href="/tabs/profile">

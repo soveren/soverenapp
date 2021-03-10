@@ -4,7 +4,10 @@
       <ion-toolbar>
         <ion-title>Your Storefront</ion-title>
         <ion-buttons slot="end">
-          <ion-button @click="editProfile()">
+          <ion-button @click="copyStoreLink()">
+            <ion-icon slot="icon-only" :icon="linkOutline"></ion-icon>
+          </ion-button>
+          <ion-button @click="editStore()">
             <ion-icon slot="icon-only" :icon="createOutline"></ion-icon>
           </ion-button>
         </ion-buttons>
@@ -27,20 +30,23 @@
 
           <ion-segment-button value="products">
             <ion-label>Products</ion-label>
-            <ion-icon :icon="basket"></ion-icon>
+<!--            <ion-icon :icon="basket"></ion-icon>-->
           </ion-segment-button>
 
           <ion-segment-button value="categories">
             <ion-label>Categories</ion-label>
-            <ion-icon :icon="list"></ion-icon>
+<!--            <ion-icon :icon="list"></ion-icon>-->
           </ion-segment-button>
 
           <ion-segment-button value="about">
             <ion-label>About store</ion-label>
-            <ion-icon :icon="informationCircle"></ion-icon>
+<!--            <ion-icon :icon="informationCircle"></ion-icon>-->
           </ion-segment-button>
 
         </ion-segment>
+
+        <div>{{segment}}</div>
+
 
       </div>
 
@@ -50,23 +56,41 @@
 </template>
 
 <script lang="ts">
-import { IonButtons, IonButton, IonSegment, IonSegmentButton, IonLabel, IonIcon, IonAvatar, IonImg, IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import { createOutline, informationCircle, basket, heart, list, star, storefront  } from 'ionicons/icons';
+import { toastController, IonButtons, IonButton, IonSegment, IonSegmentButton, IonLabel, IonIcon, IonAvatar, IonImg, IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
+import { linkOutline, createOutline, informationCircle, basket, heart, list, star, storefront  } from 'ionicons/icons';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'profile',
   components: { IonButtons, IonButton, IonSegment, IonSegmentButton, IonLabel, IonAvatar, IonIcon, IonImg,
-    IonHeader, IonToolbar, IonTitle, IonContent, IonPage },
+    IonHeader, IonToolbar, IonTitle, IonContent, IonPage},
+  data() {
+    return { segment:'products' }
+  },
+  methods: {
+    segmentChanged(e: any) {
+      console.log('segmentChanged', e)
+      this.segment = e.detail.value
+    },
+    editStore() {
+      console.log('editStore clicked!');
+    },
+    async copyStoreLink() {
+      console.log('copyStoreLink clicked!')
+      //TODO copy link to clipboard
+      const toast = await toastController
+          .create({
+            message: 'Link to your store was copied to clipboard',
+            duration: 2000,
+            position: 'top'
+          })
+      return toast.present();
+    },
+  },
   setup() {
-    const editProfile = () => {
-      console.log('editProfile clicked!');
-    }
-    const segmentChanged = (e: any) => {
-      console.log('segmentChanged', e);
-    }
-    return { createOutline, basket, heart, list, star, storefront, informationCircle,
-      editProfile, segmentChanged };
+    return {
+      linkOutline, createOutline, basket, heart, list, star, storefront, informationCircle,
+    };
   }
 })
 </script>
