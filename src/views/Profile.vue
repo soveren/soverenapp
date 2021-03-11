@@ -25,20 +25,20 @@
 
         <ion-segment @ionChange="segmentChanged($event)" value="purchases" class="ion-margin-top">
 
-          <ion-segment-button value="wishes">
-            <ion-label>Wishes</ion-label>
-            <ion-icon :icon="heart"></ion-icon>
-          </ion-segment-button>
+<!--          <ion-segment-button value="wishes">-->
+<!--            <ion-label>Liked</ion-label>-->
+<!--            <ion-icon :icon="heart"></ion-icon>-->
+<!--          </ion-segment-button>-->
 
           <ion-segment-button value="purchases">
             <ion-label>Purchases</ion-label>
             <ion-icon :icon="basket"></ion-icon>
           </ion-segment-button>
 
-          <ion-segment-button value="favorites">
-            <ion-label>Favorites</ion-label>
-            <ion-icon :icon="star"></ion-icon>
-          </ion-segment-button>
+<!--          <ion-segment-button value="favorites">-->
+<!--            <ion-label>Favorites</ion-label>-->
+<!--            <ion-icon :icon="star"></ion-icon>-->
+<!--          </ion-segment-button>-->
 
           <ion-segment-button value="reselling">
             <ion-label>Reselling</ion-label>

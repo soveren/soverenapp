@@ -7,9 +7,9 @@
           <ion-button @click="copyStoreLink()">
             <ion-icon slot="icon-only" :icon="linkOutline"></ion-icon>
           </ion-button>
-          <ion-button @click="editStore()">
+<!--          <ion-button @click="editStore()">
             <ion-icon slot="icon-only" :icon="createOutline"></ion-icon>
-          </ion-button>
+          </ion-button>-->
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
@@ -22,30 +22,27 @@
 
       <div class="center-horizontal">
 
-        <h3>Digital Magic Store</h3>
+        <h3>{{store.name}}</h3>
         <div style="width:100%;height: 128px; overflow: hidden;background-size: cover; background-position: center; background-image: url('https://nation.com.pk/digital_images/large/2018-04-09/the-unicorn-land-1523279289-2062.jpg')">
         </div>
 
-        <ion-segment @ionChange="segmentChanged($event)" value="products" >
+<!--        <ion-segment @ionChange="segmentChanged($event)" value="products" >
 
           <ion-segment-button value="products">
             <ion-label>Products</ion-label>
-<!--            <ion-icon :icon="basket"></ion-icon>-->
           </ion-segment-button>
 
           <ion-segment-button value="categories">
             <ion-label>Categories</ion-label>
-<!--            <ion-icon :icon="list"></ion-icon>-->
           </ion-segment-button>
 
           <ion-segment-button value="about">
             <ion-label>About store</ion-label>
-<!--            <ion-icon :icon="informationCircle"></ion-icon>-->
           </ion-segment-button>
 
         </ion-segment>
 
-        <div>{{segment}}</div>
+        <div>{{segment}}</div>-->
 
 
       </div>
@@ -65,13 +62,18 @@ export default defineComponent({
   components: { IonButtons, IonButton, IonSegment, IonSegmentButton, IonLabel, IonAvatar, IonIcon, IonImg,
     IonHeader, IonToolbar, IonTitle, IonContent, IonPage},
   data() {
-    return { segment:'products' }
+    return {
+      store : {
+        name:'Digital Magic Store'
+      },
+      // segment:'products',
+    }
   },
   methods: {
-    segmentChanged(e: any) {
+    /*segmentChanged(e: any) {
       console.log('segmentChanged', e)
       this.segment = e.detail.value
-    },
+    },*/
     editStore() {
       console.log('editStore clicked!');
     },

@@ -29,11 +29,15 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: 'store',
-        component: () => import('@/views/store.vue')
+        component: () => import('@/views/Store.vue')
+      },
+      {
+        path: 'purchases',
+        component: () => import('@/views/Purchases.vue')
       },
       {
         path: 'profile',
-        component: () => import('@/views/profile.vue')
+        component: () => import('@/views/Profile.vue')
       }
     ]
   }
