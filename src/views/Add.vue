@@ -17,6 +17,8 @@
         </ion-toolbar>
       </ion-header>
 
+      <ion-list>
+
       <ion-item>
         <ion-label position="stacked">Product Name</ion-label>
         <ion-input v-model="product.metadata.name" placeholder="Type Your Amazing Product Name Here"></ion-input>
@@ -115,7 +117,9 @@
         <small>* url to private file or folder, accessible to buyers only (simple DRM)</small>
       </ion-item>
 
-      <ion-button @click="publishProduct()" expand="full">Publish Product</ion-button>
+      </ion-list>
+
+<!--      <ion-button @click="publishProduct()" expand="full" >Publish Product</ion-button>-->
 
 
     </ion-content>
