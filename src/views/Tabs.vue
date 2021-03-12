@@ -59,7 +59,9 @@ export default defineComponent({
   },
   setup() {
     return {
-      newspaper, newspaperOutline, planet, planetOutline, bagAdd, bagAddOutline, basket, basketOutline, search, searchOutline, personCircle, personCircleOutline, storefront, storefrontOutline
+      newspaper, newspaperOutline, planet, planetOutline, bagAdd, bagAddOutline,
+      basket, basketOutline, search, searchOutline, personCircle, personCircleOutline,
+      storefront, storefrontOutline
     }
   }
 })

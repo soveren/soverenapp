@@ -17,6 +17,8 @@ module.exports = {
     'vue/no-deprecated-slot-attribute': 'off',
     'vue/no-unused-components': 'off', //TODO remove in prod
     '@typescript-eslint/no-explicit-any': 'off',
+    'camelcase': 'off',
+    '@typescript-eslint/camelcase': 'off',
   },
   overrides: [
     {
