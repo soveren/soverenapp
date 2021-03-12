@@ -19,18 +19,18 @@
 
       <ion-item>
         <ion-label position="stacked">Product Name</ion-label>
-        <ion-input v-model="product.name" placeholder="Type Your Amazing Product Name Here"></ion-input>
+        <ion-input v-model="product.metadata.name" placeholder="Type Your Amazing Product Name Here"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked" class="ion-padding-bottom">Markdown Description</ion-label>
-        <v-md-editor v-model="product.description" height="300px"
+        <v-md-editor v-model="product.metadata.description" height="300px"
                      left-toolbar="undo redo | h bold italic quote | ol ul hr | link image emoji"
                      right-toolbar="preview" />
 
       </ion-item>
       <ion-item>
-        <v-md-preview :text="product.description"></v-md-preview>
+        <v-md-preview :text="product.metadata.description"></v-md-preview>
       </ion-item>
 
     </ion-content>
@@ -50,12 +50,22 @@ export default defineComponent({
   data() {
     return {
       product: {
-        name:'',
-        image:'',
-        description:'# Hello :grinning:',
-        media:'',
-        price:null,
-        amount:null,
+        metadata: { // https://docs.opensea.io/docs/metadata-standards
+          name: '',
+          image: '',
+          description: '# Hello :grinning:',
+          external_url: '',
+          background_color: null,
+          animation_url: '',
+          // youtube_url:'', // let's do not use http(s) but use ipfs
+          attributes: [],
+
+        },
+        token: {
+          price: null,
+          mint_amount: null,
+          private_url: '' // url to private data, accessible to token owners only (simple DRM)
+        }
       }
     }
   },
