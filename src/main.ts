@@ -36,6 +36,8 @@ import VMdPreview from '@kangc/v-md-editor/lib/preview';
 import '@kangc/v-md-editor/lib/style/preview.css';
 
 VMdPreview.use(githubTheme)
+VMdPreview.use(createEmojiPlugin());
+
 VueMarkdownEditor.lang.use('en-US', enUS);
 VueMarkdownEditor.use(vuepressTheme);
 VueMarkdownEditor.use(createEmojiPlugin());

@@ -25,7 +25,7 @@
       <ion-item>
         <ion-label position="stacked" class="ion-padding-bottom">Markdown Description</ion-label>
         <v-md-editor v-model="product.description" height="300px"
-                     left-toolbar="undo redo | h bold italic quote | ol ul hr | link image"
+                     left-toolbar="undo redo | h bold italic quote | ol ul hr | link image emoji"
                      right-toolbar="preview" />
 
       </ion-item>
@@ -52,7 +52,7 @@ export default defineComponent({
       product: {
         name:'',
         image:'',
-        description:'# Hello',
+        description:'# Hello :grinning:',
         media:'',
         price:null,
         amount:null,
