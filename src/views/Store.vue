@@ -7,9 +7,9 @@
           <ion-button @click="copyStoreLink()">
             <ion-icon slot="icon-only" :icon="linkOutline"></ion-icon>
           </ion-button>
-<!--          <ion-button @click="editStore()">
+          <ion-button @click="editStore()">
             <ion-icon slot="icon-only" :icon="createOutline"></ion-icon>
-          </ion-button>-->
+          </ion-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>

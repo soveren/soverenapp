@@ -40,7 +40,7 @@
             <h3>H3 Title Text</h3>
             <p>Icon on right</p>
           </ion-label>
-          <ion-icon :icon="heart" slot="end"></ion-icon>
+          <ion-icon :icon="storefront" slot="end"></ion-icon>
         </ion-item>
 
       </ion-list>
