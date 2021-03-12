@@ -258,3 +258,7 @@ http://ionicframework.com/docs/theming/ */
   flex-direction: row;
   align-items: center;
 }
+
+.v-md-editor textarea {
+  background-color: white !important;
+}

@@ -3,18 +3,18 @@
     <ion-tabs @ionTabsDidChange="afterTabChange">
       <ion-tab-bar slot="bottom">
 
-        <ion-tab-button tab="tab1" href="/tabs/tab1">
-          <ion-icon :icon="(currentTab==='tab1') ? newspaper : newspaperOutline" />
-          <ion-label>News</ion-label>
+        <ion-tab-button tab="dash" href="/tabs/dash">
+          <ion-icon :icon="(currentTab==='dash') ? newspaper : newspaperOutline" />
+          <ion-label>Dashboard</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="tab2" href="/tabs/tab2">
-          <ion-icon :icon="(currentTab==='tab2') ? search : searchOutline" />
+        <ion-tab-button tab="shops" href="/tabs/shops">
+          <ion-icon :icon="(currentTab==='shops') ? search : searchOutline" />
           <ion-label>Shops</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="tab3" href="/tabs/tab3">
-          <ion-icon :icon="(currentTab==='tab3') ? bagAdd : bagAddOutline" />
+        <ion-tab-button tab="add" href="/tabs/add">
+          <ion-icon :icon="(currentTab==='add') ? bagAdd : bagAddOutline" />
           <ion-label>Add</ion-label>
         </ion-tab-button>
 

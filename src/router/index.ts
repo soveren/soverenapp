@@ -16,16 +16,16 @@ const routes: Array<RouteRecordRaw> = [
         redirect: '/tabs/tab1'
       },
       {
-        path: 'tab1',
-        component: () => import('@/views/Tab1.vue')
+        path: 'dash',
+        component: () => import('@/views/Dash.vue')
       },
       {
-        path: 'tab2',
-        component: () => import('@/views/Tab2.vue')
+        path: 'shops',
+        component: () => import('@/views/Shops.vue')
       },
       {
-        path: 'tab3',
-        component: () => import('@/views/Tab3.vue')
+        path: 'add',
+        component: () => import('@/views/Add.vue')
       },
       {
         path: 'store',
@@ -35,10 +35,10 @@ const routes: Array<RouteRecordRaw> = [
         path: 'purchases',
         component: () => import('@/views/Purchases.vue')
       },
-      {
-        path: 'profile',
-        component: () => import('@/views/Profile.vue')
-      }
+      // {
+      //   path: 'profile',
+      //   component: () => import('@/views/Profile.vue')
+      // }
     ]
   }
 ]

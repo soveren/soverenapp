@@ -23,10 +23,29 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+/* V MD Editor */
+import VueMarkdownEditor from '@kangc/v-md-editor';
+import '@kangc/v-md-editor/lib/style/base-editor.css';
+import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js';
+import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
+import '@kangc/v-md-editor/lib/theme/style/vuepress.css';
+import createEmojiPlugin from '@kangc/v-md-editor/lib/plugins/emoji/index';
+import '@kangc/v-md-editor/lib/plugins/emoji/emoji.css';
+import enUS from '@kangc/v-md-editor/lib/lang/en-US';
+import VMdPreview from '@kangc/v-md-editor/lib/preview';
+import '@kangc/v-md-editor/lib/style/preview.css';
+
+VMdPreview.use(githubTheme)
+VueMarkdownEditor.lang.use('en-US', enUS);
+VueMarkdownEditor.use(vuepressTheme);
+VueMarkdownEditor.use(createEmojiPlugin());
+
 const app = createApp(App)
   .use(IonicVue)
-  .use(router);
-  
+  .use(router)
+  .use(VueMarkdownEditor)
+  .use(VMdPreview)
+
 router.isReady().then(() => {
   app.mount('#app');
 });

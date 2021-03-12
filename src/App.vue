@@ -12,7 +12,7 @@ export default defineComponent({
   name: 'Soveren',
   components: {
     IonApp,
-    IonRouterOutlet
+    IonRouterOutlet,
   }
 });
 </script>
