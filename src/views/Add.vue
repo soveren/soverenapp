@@ -154,12 +154,13 @@ export default defineComponent({
         contract: {
           status: 'draft',
           price: null,
+          old_price: null, // previous price (when gt current price discount will be shown)
           bulk_prices:false,
           price10: null,
           price100: null,
           price1000: null,
           mint_amount: null,
-          private_url: '' // url to private data, accessible to token owners only (simple DRM)
+          private_url: '' // url of private data, accessible to token owners only (simple DRM)
         }
       }
     }

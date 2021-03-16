@@ -8,9 +8,9 @@
           <ion-label>Dashboard</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="shops" href="/tabs/shops">
-          <ion-icon :icon="(currentTab==='shops') ? search : searchOutline" />
-          <ion-label>Shops</ion-label>
+        <ion-tab-button tab="stores" href="/tabs/stores">
+          <ion-icon :icon="(currentTab==='stores') ? search : searchOutline" />
+          <ion-label>Stores</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="add" href="/tabs/add">
@@ -18,9 +18,9 @@
           <ion-label>Add</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="purchases" href="/tabs/purchases">
-          <ion-icon :icon="(currentTab==='purchases') ? basket : basketOutline" />
-          <ion-label>Purchases</ion-label>
+        <ion-tab-button tab="products" href="/tabs/products">
+          <ion-icon :icon="(currentTab==='products') ? basket : basketOutline" />
+          <ion-label>Products</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="store" href="/tabs/store">

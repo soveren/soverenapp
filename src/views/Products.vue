@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Shops</ion-title>
+        <ion-title>Products</ion-title>
 <!--        <ion-buttons slot="end">
           <ion-button @click="editProfile()">
             <ion-icon slot="icon-only" :icon="createOutline"></ion-icon>
@@ -13,11 +13,11 @@
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Shops</ion-title>
+          <ion-title size="large">Products</ion-title>
         </ion-toolbar>
       </ion-header>
 
-      <ion-searchbar></ion-searchbar>
+<!--      <ion-searchbar></ion-searchbar>-->
 
       <ion-list>
 
@@ -26,7 +26,7 @@
             <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==">
           </ion-thumbnail>
           <ion-label>
-            <h2>Super Store</h2>
+            <h2>H2 Title Text</h2>
             <p>Button on right</p>
           </ion-label>
           <ion-button fill="outline" slot="end">View</ion-button>
@@ -37,10 +37,10 @@
             <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==">
           </ion-thumbnail>
           <ion-label>
-            <h2>Game Start</h2>
+            <h2>Title Text</h2>
             <p>Icon on right</p>
           </ion-label>
-          <ion-icon :icon="heart" slot="end"></ion-icon>
+          <ion-icon :icon="storefront" slot="end"></ion-icon>
         </ion-item>
 
       </ion-list>

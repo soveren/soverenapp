@@ -20,10 +20,15 @@
         </ion-toolbar>
       </ion-header>
 
-      <div class="center-horizontal">
+      <div class="center-horizontal ion-padding-top">
+
+        <ion-avatar >
+          <img :src="store.avatar">
+        </ion-avatar>
 
         <h3>{{store.name}}</h3>
-        <div style="width:100%;height: 128px; overflow: hidden;background-size: cover; background-position: center; background-image: url('https://nation.com.pk/digital_images/large/2018-04-09/the-unicorn-land-1523279289-2062.jpg')">
+
+        <div :style="{'background-image': 'url('+store.cover+')'}" style="width:100%;height: 128px; overflow: hidden;background-size: cover; background-position: center; ">
         </div>
 
 <!--        <ion-segment @ionChange="segmentChanged($event)" value="products" >
@@ -64,7 +69,9 @@ export default defineComponent({
   data() {
     return {
       store : {
-        name:'Digital Magic Store'
+        name:'Digital Magic Store',
+        avatar: 'https://i.pinimg.com/originals/f9/2e/ab/f92eab3755a5003dc0f639bda476573e.png',
+        cover: 'https://nation.com.pk/digital_images/large/2018-04-09/the-unicorn-land-1523279289-2062.jpg',
       },
       // segment:'products',
     }

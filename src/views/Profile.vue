@@ -23,15 +23,15 @@
         </ion-avatar>
         <h3>Sovereign Unicorn</h3>
 
-        <ion-segment @ionChange="segmentChanged($event)" value="purchases" class="ion-margin-top">
+        <ion-segment @ionChange="segmentChanged($event)" value="products" class="ion-margin-top">
 
 <!--          <ion-segment-button value="wishes">-->
 <!--            <ion-label>Liked</ion-label>-->
 <!--            <ion-icon :icon="heart"></ion-icon>-->
 <!--          </ion-segment-button>-->
 
-          <ion-segment-button value="purchases">
-            <ion-label>Purchases</ion-label>
+          <ion-segment-button value="products">
+            <ion-label>Products</ion-label>
             <ion-icon :icon="basket"></ion-icon>
           </ion-segment-button>
 

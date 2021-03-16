@@ -13,15 +13,15 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '',
-        redirect: '/tabs/tab1'
+        redirect: '/tabs/dash'
       },
       {
         path: 'dash',
         component: () => import('@/views/Dash.vue')
       },
       {
-        path: 'shops',
-        component: () => import('@/views/Shops.vue')
+        path: 'stores',
+        component: () => import('@/views/Stores.vue')
       },
       {
         path: 'add',
@@ -32,8 +32,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Store.vue')
       },
       {
-        path: 'purchases',
-        component: () => import('@/views/Purchases.vue')
+        path: 'products',
+        component: () => import('@/views/Products.vue')
       },
       // {
       //   path: 'profile',
