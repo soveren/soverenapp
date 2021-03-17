@@ -96,6 +96,11 @@
         </ion-item>
 
         <ion-item>
+          <ion-label>Sell by one</ion-label>
+          <ion-toggle v-model="product.contract.sell_by_one"></ion-toggle>
+        </ion-item>
+
+<!--        <ion-item>
           <ion-label>Enable bulk prices</ion-label>
           <ion-toggle v-model="product.contract.bulk_prices"></ion-toggle>
         </ion-item>
@@ -116,7 +121,7 @@
           <ion-label>1000 pieces and more</ion-label>
           <ion-input v-model="product.contract.price1000"
                      align="right" type="number" placeholder="0.0000"></ion-input>
-        </ion-item>
+        </ion-item>-->
 
         <ion-item>
           <ion-label>Reseller discount %</ion-label>
@@ -127,7 +132,7 @@
         <ion-item>
           <ion-label>Amount</ion-label>
           <ion-input v-model="product.contract.mint_amount"
-                     align="right" type="number" placeholder="leave empty for unlimited"></ion-input>
+                     align="right" type="number" placeholder="leave empty for maximum"></ion-input>
         </ion-item>
 
 
@@ -191,10 +196,11 @@ export default defineComponent({
           status: 'draft',
           price: null,
           old_price: null, // previous price (when gt current price discount will be shown)
-          bulk_prices: false,
-          price10: null,
-          price100: null,
-          price1000: null,
+          sell_by_one: true,
+          // bulk_prices: false,
+          // price10: null,
+          // price100: null,
+          // price1000: null,
           reseller_interest: null,
           mint_amount: null,
           private_url: '' // url of private data, accessible to token owners only (simple DRM)

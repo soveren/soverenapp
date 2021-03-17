@@ -4,8 +4,11 @@
       <ion-toolbar>
         <ion-title>Product</ion-title>
         <ion-buttons slot="end">
-          <ion-button @click="buyProduct()">
-            <ion-icon slot="icon-only" :icon="basketOutline"></ion-icon>
+          <ion-button @click="copyProductLink()">
+            <ion-icon slot="icon-only" :icon="linkOutline"></ion-icon>
+          </ion-button>
+          <ion-button @click="starProduct()">
+            <ion-icon slot="icon-only" :icon="product.starred? star : starOutline"></ion-icon>
           </ion-button>
         </ion-buttons>
       </ion-toolbar>
@@ -18,27 +21,33 @@
       </ion-header>
 
       <ion-card>
-        <img :src="product.metadata.image"/>
+        <img :src="product.metadata.image" style="width:100%" alt="cover"/>
 
         <ion-card-header>
           <ion-card-title>{{ product.metadata.name }}</ion-card-title>
           <ion-card-subtitle><ion-grid>
             <ion-row>
-              <ion-col>Price:
-              <span v-if="product.contract.old_price" class="old-price">
-                {{ product.contract.old_price }}</span>
-              {{ product.contract.price }}
+              <ion-col>
+                <ion-button size="small" color="success">Buy for&nbsp;
+                  <span v-if="product.contract.old_price" class="old-price">
+                    {{ product.contract.old_price }}&nbsp;</span>
+                    {{ product.contract.price }}
+                </ion-button>
               </ion-col>
               <ion-col class="ion-text-right">
-              Resell for {{product.contract.reseller_interest}}%
+                <ion-button v-if="product.contract.reseller_interest" size="small" color="">
+                  Resell for {{product.contract.reseller_interest}}%
+                </ion-button>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col>
-                <span v-if="product.contract.owned"><ion-icon :icon="basket"></ion-icon> owned {{product.contract.owned}}</span>
+                <span v-if="product.contract.owned"><ion-icon :icon="basket"></ion-icon> owned {{product.contract.owned>1?product.contract.owned:''}}</span>
               </ion-col>
-              <ion-col v-if="product.contract.amount<1001" class="ion-text-right">
+              <ion-col class="ion-text-right">
+                <span v-if="product.contract.amount<1001">
                 {{product.contract.amount}} piece{{product.contract.amount>1?'s':''}} left
+                </span>
               </ion-col>
 
             </ion-row></ion-grid>
@@ -54,11 +63,12 @@
             {{product.metadata.external_url}}</a>
           </ion-card-subtitle>
 
-          <video :src="product.metadata.animation_url" controls class="video-animation-url"></video>
+          <video :src="product.metadata.animation_url" controls class="video-animation-url"
+                 onclick="this.paused ? this.play() : this.pause();"></video>
 
-          <ion-card-subtitle >
+          <ion-card-subtitle v-if="product.metadata.youtube_url">
             <ion-icon :icon="logoYoutube"></ion-icon>&nbsp;
-            <a :href="product.metadata.youtube_url" target="_blank">Watch on YouTube</a>
+            <a :href="product.metadata.youtube_url" target="_blank">YouTube video</a>
           </ion-card-subtitle>
 
         </ion-card-content>
@@ -75,10 +85,11 @@
 <script lang="ts">
 import {
   IonGrid, IonRow, IonCol,
-  IonCard,  IonCardContent, IonCardHeader, IonCardTitle, IonCardSubtitle,
-  IonList,  IonItem,  IonThumbnail,  IonButtons,  IonButton,  IonLabel,  IonIcon,  IonAvatar,
-  IonPage,  IonHeader,  IonToolbar,  IonTitle,  IonContent} from '@ionic/vue';
-import {open, logoYoutube, bagCheckOutline, createOutline, heart, basket, basketOutline, star, storefront} from 'ionicons/icons';
+  IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCardSubtitle,
+  IonList, IonItem, IonThumbnail, IonButtons, IonButton, IonLabel, IonIcon, IonAvatar,
+  IonPage, IonHeader, IonToolbar, IonTitle, IonContent, toastController
+} from '@ionic/vue';
+import {open, linkOutline, logoYoutube, bagCheckOutline, createOutline, heart, basket, basketOutline, star, starOutline, storefront} from 'ionicons/icons';
 import {defineComponent} from 'vue';
 
 export default defineComponent({
@@ -92,6 +103,7 @@ export default defineComponent({
   data() {
     return {
       product: {
+        starred: false,
         metadata: { // https://docs.opensea.io/docs/metadata-standards
           name: 'Big Buck Bunny',
           image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Big_Buck_Bunny_medium.ogv/600px-seek%3D26-Big_Buck_Bunny_medium.ogv.jpg',
@@ -120,12 +132,30 @@ export default defineComponent({
     }
   },
   methods: {
-    buyProduct() {
-      console.log('buyProduct clicked!');
-    }
+    async starProduct() {
+      //TODO star/un star product to clipboard
+      this.product.starred = !this.product.starred
+      const toast = await toastController
+          .create({
+            message: this.product.starred ? 'Product added to favorites' : 'Product removed from favorites',
+            duration: 2000,
+            position: 'top'
+          })
+      return toast.present();
+    },
+    async copyProductLink() {
+      //TODO copy link to clipboard
+      const toast = await toastController
+          .create({
+            message: 'Link to the product was copied to clipboard',
+            duration: 2000,
+            position: 'top'
+          })
+      return toast.present();
+    },
   },
   setup() {
-    return {logoYoutube, bagCheckOutline, open, createOutline, heart, basket, basketOutline, star, storefront};
+    return {linkOutline, logoYoutube, bagCheckOutline, open, createOutline, heart, basket, basketOutline, star, starOutline, storefront};
   }
 })
 </script>
