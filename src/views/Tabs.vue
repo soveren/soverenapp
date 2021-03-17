@@ -28,11 +28,6 @@
           <ion-label>Your Store</ion-label>
         </ion-tab-button>
 
-<!--        <ion-tab-button tab="profile" href="/tabs/profile">
-          <ion-icon :icon="(currentTab==='profile') ? personCircle : personCircleOutline" />
-          <ion-label>Profile</ion-label>
-        </ion-tab-button>-->
-
       </ion-tab-bar>
     </ion-tabs>
   </ion-page>

@@ -237,6 +237,7 @@ http://ionicframework.com/docs/theming/ */
   }
 }
 
+
 .full-height {
   height: 100%;
 }
@@ -261,4 +262,17 @@ http://ionicframework.com/docs/theming/ */
 
 .v-md-editor textarea {
   background-color: white !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.old-price {
+  text-decoration: line-through;
+}
+
+.video-animation-url {
+  width: 100%;
+  margin: 0 auto;
 }
