@@ -137,7 +137,7 @@ export default defineComponent({
       this.product.starred = !this.product.starred
       const toast = await toastController
           .create({
-            message: this.product.starred ? 'Product added to favorites' : 'Product removed from favorites',
+            message: this.product.starred ? 'The product has been added to favorites.' : 'The product has been removed from favorites.',
             duration: 2000,
             position: 'top'
           })
@@ -147,7 +147,7 @@ export default defineComponent({
       //TODO copy link to clipboard
       const toast = await toastController
           .create({
-            message: 'Link to the product was copied to clipboard',
+            message: 'Product link copied to clipboard.',
             duration: 2000,
             position: 'top'
           })

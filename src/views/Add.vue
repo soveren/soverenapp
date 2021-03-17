@@ -74,7 +74,7 @@
 
 
         <ion-item-divider>
-          <ion-label>Paid Data</ion-label>
+          <ion-label>Paid Content</ion-label>
         </ion-item-divider>
 
         <ion-item>
@@ -124,9 +124,9 @@
         </ion-item>-->
 
         <ion-item>
-          <ion-label>Reseller discount %</ion-label>
+          <ion-label>Reseller interest</ion-label>
           <ion-input v-model="product.contract.reseller_interest"
-                     align="right" type="number" placeholder="how much resellers will receive"></ion-input>
+                     align="right" type="number" placeholder="how much resellers will receive"></ion-input>&nbsp;%
         </ion-item>
 
         <ion-item>
@@ -139,7 +139,6 @@
       </ion-list>
 
       <!--      <ion-button @click="publishProduct()" expand="full" >Publish Product</ion-button>-->
-
 
     </ion-content>
   </ion-page>
