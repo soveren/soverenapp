@@ -32,7 +32,7 @@
           <ion-button fill="outline" slot="end">View</ion-button>
         </ion-item>
 
-        <ion-item button @click="testClick()">
+        <ion-item button router-link="/tabs/product">
           <ion-thumbnail slot="start">
             <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==">
           </ion-thumbnail>

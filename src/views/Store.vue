@@ -7,7 +7,7 @@
           <ion-button @click="copyStoreLink()">
             <ion-icon slot="icon-only" :icon="linkOutline"></ion-icon>
           </ion-button>
-          <ion-button @click="editStore()">
+          <ion-button router-link="/tabs/edit-store">
             <ion-icon slot="icon-only" :icon="createOutline"></ion-icon>
           </ion-button>
         </ion-buttons>
@@ -30,6 +30,8 @@
 
         <div :style="{'background-image': 'url('+store.cover+')'}" style="width:100%;height: 128px; overflow: hidden;background-size: cover; background-position: center; ">
         </div>
+
+        <v-md-preview :text="store.description" class="no-padding"></v-md-preview>
 
 <!--        <ion-segment @ionChange="segmentChanged($event)" value="products" >
 
@@ -72,6 +74,7 @@ export default defineComponent({
         name:'Digital Magic Store',
         avatar: 'https://i.pinimg.com/originals/f9/2e/ab/f92eab3755a5003dc0f639bda476573e.png',
         cover: 'https://nation.com.pk/digital_images/large/2018-04-09/the-unicorn-land-1523279289-2062.jpg',
+        description: 'We sell best magical goods only!',
       },
       // segment:'products',
     }

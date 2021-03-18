@@ -3,6 +3,9 @@
     <ion-header>
       <ion-toolbar>
         <ion-title>Product</ion-title>
+        <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
         <ion-buttons slot="end">
           <ion-button @click="copyProductLink()">
             <ion-icon slot="icon-only" :icon="linkOutline"></ion-icon>
@@ -102,7 +105,7 @@
 
 <script lang="ts">
 import {
-  IonGrid, IonRow, IonCol, IonBadge,
+  IonGrid, IonRow, IonCol, IonBadge, IonBackButton,
   IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCardSubtitle,
   IonList, IonItem, IonThumbnail, IonButtons, IonButton, IonLabel, IonIcon, IonAvatar,
   IonPage, IonHeader, IonToolbar, IonTitle, IonContent, toastController
@@ -113,7 +116,7 @@ import {defineComponent} from 'vue';
 export default defineComponent({
   name: 'profile',
   components: { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCardSubtitle,
-    IonList, IonItem, IonThumbnail,
+    IonList, IonItem, IonThumbnail, IonBackButton,
     IonGrid, IonRow, IonCol, IonBadge,
     IonButtons, IonButton, IonLabel, IonIcon, IonAvatar,
     IonHeader, IonToolbar, IonTitle, IonContent, IonPage
