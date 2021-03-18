@@ -71,6 +71,15 @@
             <a :href="product.metadata.youtube_url" target="_blank">YouTube video</a>
           </ion-card-subtitle>
 
+          <ion-card-subtitle class="ion-padding-top">
+            <ion-badge v-for="tag in product.metadata.tags" v-bind:key="tag" class="sv-tag" color="medium">
+              {{ tag }}</ion-badge>
+          </ion-card-subtitle>
+
+          <ion-card-subtitle v-if="product.metadata.category">
+            Category: <span class="sv-category">{{product.metadata.category}}</span>
+          </ion-card-subtitle>
+
         </ion-card-content>
 
       </ion-card>
@@ -84,19 +93,19 @@
 
 <script lang="ts">
 import {
-  IonGrid, IonRow, IonCol,
+  IonGrid, IonRow, IonCol, IonBadge,
   IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCardSubtitle,
   IonList, IonItem, IonThumbnail, IonButtons, IonButton, IonLabel, IonIcon, IonAvatar,
   IonPage, IonHeader, IonToolbar, IonTitle, IonContent, toastController
 } from '@ionic/vue';
-import {open, linkOutline, logoYoutube, bagCheckOutline, createOutline, heart, basket, basketOutline, star, starOutline, storefront} from 'ionicons/icons';
+import {open, linkOutline, listCircle, logoYoutube, bagCheckOutline, createOutline, heart, basket, basketOutline, star, starOutline, storefront} from 'ionicons/icons';
 import {defineComponent} from 'vue';
 
 export default defineComponent({
   name: 'profile',
   components: { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCardSubtitle,
     IonList, IonItem, IonThumbnail,
-    IonGrid, IonRow, IonCol,
+    IonGrid, IonRow, IonCol, IonBadge,
     IonButtons, IonButton, IonLabel, IonIcon, IonAvatar,
     IonHeader, IonToolbar, IonTitle, IonContent, IonPage
   },
@@ -114,7 +123,8 @@ export default defineComponent({
           youtube_url: 'https://www.youtube.com/watch?v=aqz-KE-bpKQ', // let's use animation_url
           attributes_json: null,
           attributes: null, // parsed attributes_json
-
+          category: 'cartoons', // subcategories can be separated by back slash
+          tags: ['movie','cartoon','big','buck','bunny','open source']
         },
         contract: {
           published: true,
@@ -155,7 +165,7 @@ export default defineComponent({
     },
   },
   setup() {
-    return {linkOutline, logoYoutube, bagCheckOutline, open, createOutline, heart, basket, basketOutline, star, starOutline, storefront};
+    return {linkOutline, listCircle, logoYoutube, bagCheckOutline, open, createOutline, heart, basket, basketOutline, star, starOutline, storefront};
   }
 })
 </script>

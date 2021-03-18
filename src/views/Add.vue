@@ -74,6 +74,29 @@
 
 
         <ion-item-divider>
+          <ion-label>Cataloging</ion-label>
+        </ion-item-divider>
+
+        <ion-item>
+          <ion-label>Category</ion-label>
+          <ion-input v-model="product.metadata.category" class="ion-text-right"
+                     placeholder="leave empty for uncategorized"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Tags</ion-label>
+          <ion-input v-model="product.metadata.tags" class="ion-text-right"
+                     placeholder="separated by comma. ex: 'movie,science,biology'"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Language</ion-label>
+          <ion-input v-model="product.metadata.language" class="ion-text-right"
+                     placeholder="example: 'en-US'"></ion-input>
+        </ion-item>
+
+
+        <ion-item-divider>
           <ion-label>Paid Content</ion-label>
         </ion-item-divider>
 
@@ -91,8 +114,8 @@
 
         <ion-item>
           <ion-label>Price ETH</ion-label>
-          <ion-input v-model="product.contract.price"
-                     align="right" type="number" placeholder="0.0000"></ion-input>
+          <ion-input v-model="product.contract.price" class="ion-text-right"
+                     type="number" placeholder="0.0000"></ion-input>
         </ion-item>
 
         <ion-item>
@@ -125,14 +148,14 @@
 
         <ion-item>
           <ion-label>Reseller interest</ion-label>
-          <ion-input v-model="product.contract.reseller_interest"
-                     align="right" type="number" placeholder="how much resellers will receive"></ion-input>&nbsp;%
+          <ion-input v-model="product.contract.reseller_interest" class="ion-text-right"
+                     type="number" placeholder="how much resellers will receive"></ion-input>&nbsp;%
         </ion-item>
 
         <ion-item>
           <ion-label>Amount</ion-label>
-          <ion-input v-model="product.contract.mint_amount"
-                     align="right" type="number" placeholder="leave empty for maximum"></ion-input>
+          <ion-input v-model="product.contract.mint_amount" class="ion-text-right"
+                     type="number" placeholder="leave empty for maximum"></ion-input>
         </ion-item>
 
 
@@ -189,7 +212,9 @@ export default defineComponent({
           youtube_url: '', // let's do not use http(s) but use ipfs
           attributes_json: null,
           attributes: null, // parsed attributes_json
-
+          category: '',
+          tags: '',
+          language: ''
         },
         contract: {
           status: 'draft',
