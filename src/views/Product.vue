@@ -40,6 +40,7 @@
                 </ion-button>
               </ion-col>
             </ion-row>
+
             <ion-row>
               <ion-col>
                 <span v-if="product.contract.owned"><ion-icon :icon="basket"></ion-icon> owned {{product.contract.owned>1?product.contract.owned:''}}</span>
@@ -49,8 +50,8 @@
                 {{product.contract.amount}} piece{{product.contract.amount>1?'s':''}} left
                 </span>
               </ion-col>
-
-            </ion-row></ion-grid>
+            </ion-row>
+          </ion-grid>
           </ion-card-subtitle>
 
         </ion-card-header>
@@ -71,14 +72,22 @@
             <a :href="product.metadata.youtube_url" target="_blank">YouTube video</a>
           </ion-card-subtitle>
 
-          <ion-card-subtitle class="ion-padding-top">
-            <ion-badge v-for="tag in product.metadata.tags" v-bind:key="tag" class="sv-tag" color="medium">
-              {{ tag }}</ion-badge>
-          </ion-card-subtitle>
-
-          <ion-card-subtitle v-if="product.metadata.category">
-            Category: <span class="sv-category">{{product.metadata.category}}</span>
-          </ion-card-subtitle>
+          <ion-grid class="ion-padding-top">
+            <ion-row>
+              <ion-col>
+                <ion-badge v-for="tag in product.metadata.tags" v-bind:key="tag" class="sv-tag" color="medium">
+                  {{ tag }}</ion-badge>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col v-if="product.metadata.category">
+                Category: <span class="sv-category">{{product.metadata.category}}</span>
+              </ion-col>
+              <ion-col v-if="product.metadata.language" class="ion-text-right">
+                Language: <span class="sv-category">{{product.metadata.language}}</span>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
 
         </ion-card-content>
 
@@ -124,7 +133,8 @@ export default defineComponent({
           attributes_json: null,
           attributes: null, // parsed attributes_json
           category: 'cartoons', // subcategories can be separated by back slash
-          tags: ['movie','cartoon','big','buck','bunny','open source']
+          tags: ['movie','cartoon','big','buck','bunny','open source'],
+          language: 'en-US',
         },
         contract: {
           published: true,
