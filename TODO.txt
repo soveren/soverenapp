@@ -1,9 +1,30 @@
+Connect soverenjs
+Save own store settings
+Copy store link
+Open / find store by link
+
+Add / publish product [& contract]
+Edit product
+Send token to
+
+List published products
+View product
+
+Buy product
+
+Resale product
+
+Upload ipfs
+Pin ipfs
+
+Dashboard
+- Sales / intro
+- New products / discount
+
+
+First run quick start
+
+
 Add
 - languages dropdown
 
-Tabs:
-News
-Favorites
-Search
-Storefront
-Profile

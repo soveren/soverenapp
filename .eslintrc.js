@@ -11,7 +11,9 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2020
   },
+
   rules: {
+    'no-unused-variable': false,
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'vue/no-deprecated-slot-attribute': 'off',

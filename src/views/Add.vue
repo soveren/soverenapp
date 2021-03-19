@@ -169,25 +169,10 @@
 
 <script lang="ts">
 import {
-  IonToggle,
-  IonItemDivider,
-  IonInput,
-  IonList,
-  IonItem,
-  IonThumbnail,
-  IonSearchbar,
-  IonButtons,
-  IonButton,
-  IonSegment,
-  IonSegmentButton,
-  IonLabel,
-  IonIcon,
-  IonAvatar,
-  IonPage,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonContent
+  IonToggle,  IonItemDivider,  IonInput,  IonList,  IonItem,  IonThumbnail,
+  IonSearchbar,  IonButtons,  IonButton,  IonSegment,  IonSegmentButton,
+  IonLabel,  IonIcon,  IonAvatar,  IonPage,  IonHeader,  IonToolbar,
+  IonTitle,  IonContent
 } from '@ionic/vue';
 import {bagCheckOutline, createOutline, heart, basket, star, storefront} from 'ionicons/icons';
 import {defineComponent} from 'vue';
@@ -233,8 +218,10 @@ export default defineComponent({
     }
   },
   methods: {
-    publishProduct() {
-      console.log('publishProduct clicked!');
+    async publishProduct() {
+      console.log('publishProduct clicked!', );
+
+
     }
   },
   setup() {
