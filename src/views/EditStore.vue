@@ -98,6 +98,7 @@ export default defineComponent({
   methods: {
     async saveStore() {
       await (await myStore()).setProfileFields(this.storeForm)
+      //this.$router.push('/tabs/my')
       this.$router.go(-1)
     },
 

@@ -1,4 +1,4 @@
-
+#Todo
 
 Add / publish product [& contract]
 Edit product
@@ -24,4 +24,8 @@ First run quick start
 
 Add
 - languages dropdown
+
+
+# Bugs
+
 

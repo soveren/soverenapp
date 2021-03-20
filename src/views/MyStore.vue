@@ -74,11 +74,21 @@ export default defineComponent({
       // segment:'products',
     }
   },
+
   methods: {
     /*segmentChanged(e: any) {
       console.log('segmentChanged', e)
       this.segment = e.detail.value
     },*/
+    async ionViewDidEnter() {
+      console.log('Home page did enter');
+      try {
+        const ms = await myStore()
+        this.store = await ms.getProfileFields()
+      } finally {
+        this.loading = false
+      }
+    },
     async copyStoreLink() {
       const ms = await myStore()
       const uid = await ms.getUid()
@@ -94,20 +104,8 @@ export default defineComponent({
     },
   },
   setup() {
-
-
     const store = ref({})
     const loading = ref(true)
-
-    async function loadData() {
-      try {
-        const ms = await myStore()
-        store.value = await ms.getProfileFields()
-      } finally {
-        loading.value = false
-      }
-    }
-    loadData().then()
 
     return {
       store, loading, linkOutline, createOutline, basket, heart, list, star, storefront, informationCircle,
