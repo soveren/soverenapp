@@ -94,11 +94,7 @@ export default defineComponent({
     },
   },
   setup() {
-    // function later(delay) {
-    //   return new Promise(function(resolve) {
-    //     setTimeout(resolve, delay);
-    //   });
-    // }
+
 
     const store = ref({})
     const loading = ref(true)

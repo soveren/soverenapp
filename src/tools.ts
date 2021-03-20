@@ -42,4 +42,10 @@ function copyTextToClipboard(text) {
     });
 }
 
-export {copyTextToClipboard }
+function pause(delay) {
+  return new Promise(function(resolve) {
+    setTimeout(resolve, delay);
+  });
+}
+
+export {pause, copyTextToClipboard }

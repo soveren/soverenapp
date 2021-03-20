@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Dashboard</ion-title>
+        <ion-title>News</ion-title>
 <!--        <ion-buttons slot="end">
           <ion-button @click="editProfile()">
             <ion-icon slot="icon-only" :icon="createOutline"></ion-icon>

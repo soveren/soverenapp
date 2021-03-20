@@ -3,9 +3,9 @@
     <ion-tabs @ionTabsDidChange="afterTabChange">
       <ion-tab-bar slot="bottom">
 
-        <ion-tab-button tab="dash" href="/tabs/dash">
-          <ion-icon :icon="(currentTab==='dash') ? newspaper : newspaperOutline" />
-          <ion-label>Dashboard</ion-label>
+        <ion-tab-button tab="news" href="/tabs/news">
+          <ion-icon :icon="(currentTab==='news') ? newspaper : newspaperOutline" />
+          <ion-label>News</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="stores" href="/tabs/stores">
