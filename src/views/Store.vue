@@ -61,7 +61,8 @@
 import { IonProgressBar, toastController, IonButtons, IonButton, IonSegment, IonSegmentButton, IonLabel, IonIcon, IonAvatar, IonImg, IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import { linkOutline, createOutline, informationCircle, basket, heart, list, star, storefront  } from 'ionicons/icons';
 import { defineComponent, ref } from 'vue';
-import {myStore} from "../soveren";
+import { myStore, uidToStoreLink } from "@/soveren";
+import { copyTextToClipboard } from "@/tools";
 
 export default defineComponent({
   name: 'profile',
@@ -80,10 +81,13 @@ export default defineComponent({
     },*/
     async copyStoreLink() {
       console.log('copyStoreLink clicked!')
-      //TODO copy link to clipboard
+      const ms = await myStore()
+      const uid = await ms.getUid()
+      const link = uidToStoreLink(uid)
+      copyTextToClipboard(link)
       const toast = await toastController
           .create({
-            message: 'Link to your store was copied to clipboard',
+            message: 'Link to store was copied to clipboard',
             duration: 2000,
             position: 'top'
           })

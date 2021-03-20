@@ -77,7 +77,7 @@ import {
 } from '@ionic/vue';
 import { linkOutline, checkmark, createOutline, informationCircle, basket, heart, list, star, storefront  } from 'ionicons/icons';
 import {defineComponent, ref} from 'vue';
-import {myStore} from "../soveren";
+import {myStore} from "@/soveren";
 
 export default defineComponent({
   name: 'profile',

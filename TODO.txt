@@ -1,5 +1,5 @@
-Connect soverenjs
-Save own store settings
+
+
 Copy store link
 Open / find store by link
 

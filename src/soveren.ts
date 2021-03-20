@@ -4,6 +4,12 @@ import { v4 as uuidv4 } from'uuid'
 
 import {Freedom, Store} from 'soverenjs'
 
+const origin = window.location.origin//'https://soveren.org/'
+
+function uidToStoreLink(storeUid) {
+    return origin+'/tabs/store/'+storeUid
+}
+
 const freedom = new Freedom(IpfsLibrary, OrbitDBLibrary, uuidv4)
 
 let _myStore;
@@ -22,4 +28,4 @@ async function getStore(uid) {
     return store
 }
 
-export {Freedom, freedom, Store, getStore, myStore }
+export {Freedom, freedom, Store, getStore, myStore, uidToStoreLink }
