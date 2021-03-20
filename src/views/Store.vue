@@ -28,7 +28,7 @@
 
         <div :style="{'background-image': 'url('+(store.cover||'https://cdn.pixabay.com/photo/2020/08/03/20/07/flowers-5461025__340.jpg')+')'}" class="sv-store-cover"></div>
 
-        <v-md-preview :text="store.description || 'Please check link you entered'" class="no-padding"></v-md-preview>
+        <v-md-preview :text="store.description || 'Please check the store link you entered'" class="no-padding"></v-md-preview>
 
 <!--        <ion-segment @ionChange="segmentChanged($event)" value="products" >
 
