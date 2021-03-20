@@ -22,9 +22,13 @@ async function myStore() {
     return _myStore
 }
 
+const _storesCache = {}
+
 async function getStore(uid) {
+    if (_storesCache[uid]) return _storesCache[uid]
     const store = new Store(freedom)
     await store.create(uid)
+    _storesCache[uid] = store
     return store
 }
 

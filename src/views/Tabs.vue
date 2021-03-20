@@ -23,9 +23,9 @@
           <ion-label>Products</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="store" href="/tabs/store">
-          <ion-icon :icon="(currentTab==='store') ? storefront : storefrontOutline" />
-          <ion-label>Your Store</ion-label>
+        <ion-tab-button tab="store" href="/tabs/my">
+          <ion-icon :icon="(currentTab==='my') ? storefront : storefrontOutline" />
+          <ion-label>My Store</ion-label>
         </ion-tab-button>
 
       </ion-tab-bar>

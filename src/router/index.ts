@@ -28,7 +28,11 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Add.vue')
       },
       {
-        path: 'store',
+        path: 'my',
+        component: () => import('@/views/MyStore.vue')
+      },
+      {
+        path: 'store/:uid',
         component: () => import('@/views/Store.vue')
       },
       {

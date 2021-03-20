@@ -1,8 +1,5 @@
 
 
-Copy store link
-Open / find store by link
-
 Add / publish product [& contract]
 Edit product
 Send token to
