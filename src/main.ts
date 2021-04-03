@@ -34,6 +34,7 @@ import '@kangc/v-md-editor/lib/plugins/emoji/emoji.css';
 import enUS from '@kangc/v-md-editor/lib/lang/en-US';
 import VMdPreview from '@kangc/v-md-editor/lib/preview';
 import '@kangc/v-md-editor/lib/style/preview.css';
+// import { getSoverenContract } from "@/soveren";
 
 VMdPreview.use(githubTheme)
 VMdPreview.use(createEmojiPlugin());
@@ -47,6 +48,8 @@ const app = createApp(App)
   .use(router)
   .use(VueMarkdownEditor)
   .use(VMdPreview)
+
+// getSoverenContract().then(c => app.config.globalProperties.$contract = c )
 
 router.isReady().then(() => {
   app.mount('#app');

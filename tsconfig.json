@@ -1,5 +1,11 @@
 {
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
+  },
   "compilerOptions": {
+    "resolveJsonModule": true,
     "noImplicitAny": false,
     "target": "esnext",
     "module": "esnext",

@@ -13,11 +13,11 @@ module.exports = {
   },
 
   rules: {
-    'no-unused-variable': false,
+    'no-unused-variable': 0,
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'vue/no-deprecated-slot-attribute': 'off',
-    'vue/no-unused-components': 'off', //TODO remove in prod
+    'vue/no-unused-components': 0, //TODO remove in prod
     '@typescript-eslint/no-explicit-any': 'off',
     'camelcase': 'off',
     '@typescript-eslint/camelcase': 'off',

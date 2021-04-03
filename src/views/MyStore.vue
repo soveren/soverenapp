@@ -63,7 +63,7 @@
 import { IonProgressBar, toastController, IonButtons, IonButton, IonSegment, IonSegmentButton, IonLabel, IonIcon, IonAvatar, IonImg, IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import { linkOutline, createOutline, informationCircle, basket, heart, list, star, storefront  } from 'ionicons/icons';
 import { defineComponent, ref } from 'vue';
-import { myStore, uidToStoreLink } from "@/soveren";
+import { myStore, uidToStoreLink, getSoverenContract } from "@/soveren";
 import { copyTextToClipboard } from "@/tools";
 
 export default defineComponent({
@@ -86,6 +86,12 @@ export default defineComponent({
       try {
         const ms = await myStore()
         this.store = await ms.getProfileFields()
+
+        const contract = await getSoverenContract()
+        const profileUri = await contract.getProfileUri('0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266')
+
+        console.log('profileUri', profileUri);
+
       } finally {
         this.loading = false
       }

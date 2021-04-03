@@ -5,7 +5,7 @@ import Tabs from '../views/Tabs.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/tabs/dash'
+    redirect: '/tabs/news'
   },
   {
     path: '/tabs/',

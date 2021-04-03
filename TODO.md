@@ -1,20 +1,21 @@
-#Todo
+##TODO
 
-Add / publish product [& contract]
-Edit product
-Send token to
+- Mint product
+- Offer product 
+- Burn 
+- Transfer
+- List published products
+- View product
+- Buy product
+- Resale product
 
-List published products
-View product
+- connect Metamask
 
-Buy product
+##ipfs
+- Upload ipfs file/image
+- Pin ipfs
 
-Resale product
-
-Upload ipfs
-Pin ipfs
-
-Dashboard
+##Dashboard
 - Sales / intro
 - New products / discount
 

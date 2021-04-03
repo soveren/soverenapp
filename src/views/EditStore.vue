@@ -77,7 +77,8 @@ import {
 } from '@ionic/vue';
 import { linkOutline, checkmark, createOutline, informationCircle, basket, heart, list, star, storefront  } from 'ionicons/icons';
 import {defineComponent, ref} from 'vue';
-import {myStore} from "@/soveren";
+import { myStore, getSoverenContract } from "@/soveren";
+
 
 export default defineComponent({
   name: 'profile',
@@ -98,13 +99,15 @@ export default defineComponent({
   methods: {
     async saveStore() {
       await (await myStore()).setProfileFields(this.storeForm)
+      console.log('this.storeForm.name', this.storeForm.name);
+      await (await getSoverenContract()).setProfileUri(this.storeForm.name)
       //this.$router.push('/tabs/my')
       this.$router.go(-1)
     },
 
   },
   setup() {
-    const storeForm = ref({})
+    const storeForm: any = ref({})
     const loading = ref(true)
 
     async function loadData() {
