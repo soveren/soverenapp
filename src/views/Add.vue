@@ -4,7 +4,13 @@
       <ion-toolbar>
         <ion-title>Add Product</ion-title>
         <ion-buttons slot="end">
-          <ion-button @click="addProduct()">
+          <ion-button v-if="!previewMode" @click="preview()">
+            <ion-icon slot="icon-only" :icon="eyeOutline"></ion-icon>
+          </ion-button>
+          <ion-button v-if="previewMode" @click="edit()">
+            <ion-icon slot="icon-only" :icon="createOutline"></ion-icon>
+          </ion-button>
+          <ion-button @click="add()">
             <ion-icon slot="icon-only" :icon="bagCheckOutline"></ion-icon>
           </ion-button>
         </ion-buttons>
@@ -17,7 +23,7 @@
         </ion-toolbar>
       </ion-header>
 
-      <ion-list>
+      <ion-list v-if="!previewMode" >
 
         <ion-item>
           <ion-label position="stacked">Product Name</ion-label>
@@ -47,7 +53,7 @@
 
         <ion-item>
           <ion-label position="stacked">Description</ion-label>
-          <ion-textarea v-model="product.metadata.description" placeholder=""></ion-textarea>
+          <ion-textarea v-model="product.metadata.description" rows="3" placeholder=""></ion-textarea>
         </ion-item>
 
         <ion-item>
@@ -203,12 +209,17 @@
           <ion-input v-model="product.offer.donation" class="ion-text-right"
                      type="number" placeholder="5"></ion-input>&nbsp;%
 
-        </ion-item>
-        </div>
-
+        </ion-item></div>
       </ion-list>
 
-      <ion-button @click="addProduct()" shape="round" expand="full" >Mint Product</ion-button>
+      <ion-button v-if="!previewMode" @click="preview()" shape="round" expand="full" fill="outline" class="ion-margin">
+        <ion-icon :icon="eyeOutline"></ion-icon>&nbsp;Preview</ion-button>
+
+      <ion-button v-if="previewMode" @click="edit()" shape="round" expand="full" fill="outline" class="ion-margin">
+        <ion-icon :icon="createOutline"></ion-icon>&nbsp;Edit</ion-button>
+
+      <ion-button @click="add()" shape="round" expand="full" class="ion-margin">
+        <ion-icon :icon="bagCheckOutline"></ion-icon>&nbsp;Publish</ion-button>
 
     </ion-content>
   </ion-page>
@@ -221,7 +232,7 @@ import {
   IonLabel,  IonIcon,  IonAvatar,  IonPage,  IonHeader,  IonToolbar,
   IonTitle,  IonContent, IonTextarea, IonImg,
 } from '@ionic/vue';
-import {cloudUpload, bagCheckOutline, createOutline, heart, basket, star, storefront} from 'ionicons/icons';
+import {eyeOutline, cloudUpload, bagCheckOutline, createOutline, heart, basket, star, storefront} from 'ionicons/icons';
 import {defineComponent} from 'vue';
 
 export default defineComponent({
@@ -233,6 +244,7 @@ export default defineComponent({
   },
   data() {
     return {
+      previewMode: false,
       product: {
         metadata: { // https://docs.opensea.io/docs/metadata-standards
           name: '',
@@ -269,14 +281,19 @@ export default defineComponent({
     }
   },
   methods: {
-    async addProduct() {
-      console.log('publishProduct clicked!', );
-
+    async preview() {
+      this.previewMode = true
+    },
+    async edit() {
+      this.previewMode = false
+    },
+    async add() {
+      console.log('add clicked!', );
 
     }
   },
   setup() {
-    return {cloudUpload, bagCheckOutline, createOutline, heart, basket, star, storefront};
+    return {eyeOutline, cloudUpload, bagCheckOutline, createOutline, heart, basket, star, storefront};
   }
 })
 </script>

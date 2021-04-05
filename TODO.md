@@ -1,6 +1,7 @@
 ##TODO
 
 - Mint product
+  - back button from preview opens edit mode
 - Offer product 
 - Burn 
 - Transfer
