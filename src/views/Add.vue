@@ -72,7 +72,15 @@
             </a></small>
         </ion-item>
 
+        <ion-item>
+          <ion-label>Sell by one<br/>
+          <small>* The program will not ask the buyer for the quantity,
+            but will sell one token at a time.</small></ion-label>
+          <ion-toggle v-model="product.contract.sell_by_one"></ion-toggle>
+        </ion-item>
 
+
+<!--
         <ion-item-divider>
           <ion-label>Cataloging</ion-label>
         </ion-item-divider>
@@ -94,18 +102,7 @@
           <ion-input v-model="product.metadata.language" class="ion-text-right"
                      placeholder="example: 'en-US'"></ion-input>
         </ion-item>
-
-
-        <ion-item-divider>
-          <ion-label>Paid Content</ion-label>
-        </ion-item-divider>
-
-        <ion-item>
-          <ion-label position="stacked">Private URL</ion-label>
-          <ion-input v-model="product.contract.private_url"
-                     placeholder="ipfs://"></ion-input>
-          <small>* url to private file, accessible to buyers only (simple DRM)</small>
-        </ion-item>
+-->
 
 
         <ion-item-divider>
@@ -113,51 +110,85 @@
         </ion-item-divider>
 
         <ion-item>
+          <ion-label position="stacked">Private URI (Paid Content)</ion-label>
+          <ion-input v-model="product.contract.privateUri"
+                     placeholder="ipfs://"></ion-input>
+          <small>* url to private file, accessible to buyers only (simple DRM)</small>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Mint Amount</ion-label>
+          <ion-input v-model="product.contract.amount" class="ion-text-right"
+                     type="number" placeholder="leave empty for maximum"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Can mint more</ion-label>
+          <ion-toggle v-model="product.contract.canMintMore"></ion-toggle>
+        </ion-item>
+
+
+        <ion-item-divider>
+          <ion-label>Offer</ion-label>
+        </ion-item-divider>
+
+        <ion-item>
+          <ion-label>Offer this token for sale</ion-label>
+          <ion-toggle v-model="product.offer.makeOffer"></ion-toggle>
+        </ion-item>
+
+        <div v-if="product.offer.makeOffer" class="ion-no-padding">
+        <ion-item>
           <ion-label>Price ETH</ion-label>
-          <ion-input v-model="product.contract.price" class="ion-text-right"
+          <ion-input v-model="product.offer.price" class="ion-text-right"
                      type="number" placeholder="0.0000"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label>Sell by one</ion-label>
-          <ion-toggle v-model="product.contract.sell_by_one"></ion-toggle>
+          <ion-label>Reserve amount</ion-label>
+          <ion-input v-model="product.offer.reserve" class="ion-text-right"
+                     type="number" placeholder="0"></ion-input>
+          <small>* do not sell specified amount of tokens</small>
         </ion-item>
 
-<!--        <ion-item>
-          <ion-label>Enable bulk prices</ion-label>
-          <ion-toggle v-model="product.contract.bulk_prices"></ion-toggle>
+
+        <ion-item>
+          <ion-label>Enable bulk discounts (from price, in percents)</ion-label>
+          <ion-toggle v-model="product.offer.bulkDiscounts"></ion-toggle>
         </ion-item>
 
-        <ion-item v-if="product.contract.bulk_prices">
+        <ion-item v-if="product.offer.bulkDiscounts">
           <ion-label>10 pieces and more</ion-label>
-          <ion-input v-model="product.contract.price10"
-                     align="right" type="number" placeholder="0.0000"></ion-input>
+          <ion-input v-model="product.offer.discount10"
+                     align="right" type="number" placeholder="5"></ion-input>&nbsp;%
         </ion-item>
 
-        <ion-item v-if="product.contract.bulk_prices">
+        <ion-item v-if="product.offer.bulkDiscounts">
           <ion-label>100 pieces and more</ion-label>
-          <ion-input v-model="product.contract.price100"
-                     align="right" type="number" placeholder="0.0000"></ion-input>
+          <ion-input v-model="product.offer.discount100"
+                     align="right" type="number" placeholder="10"></ion-input>&nbsp;%
         </ion-item>
 
-        <ion-item v-if="product.contract.bulk_prices">
+        <ion-item v-if="product.offer.bulkDiscounts">
           <ion-label>1000 pieces and more</ion-label>
-          <ion-input v-model="product.contract.price1000"
-                     align="right" type="number" placeholder="0.0000"></ion-input>
-        </ion-item>-->
+          <ion-input v-model="product.offer.discount1000"
+                     align="right" type="number" placeholder="20"></ion-input>&nbsp;%
+        </ion-item>
+
 
         <ion-item>
-          <ion-label>Reseller interest</ion-label>
-          <ion-input v-model="product.contract.reseller_interest" class="ion-text-right"
-                     type="number" placeholder="how much resellers will receive"></ion-input>&nbsp;%
+          <ion-label>Affiliate interest</ion-label>
+          <ion-input v-model="product.offer.affiliateInterest" class="ion-text-right"
+                     type="number" placeholder="how much partners will receive"></ion-input>&nbsp;%
         </ion-item>
 
         <ion-item>
-          <ion-label>Amount</ion-label>
-          <ion-input v-model="product.contract.mint_amount" class="ion-text-right"
+          <ion-label>Donation</ion-label>
+          <ion-input v-model="product.offer.donation" class="ion-text-right"
                      type="number" placeholder="leave empty for maximum"></ion-input>
+          <small>* How many percents from clear profit you want to automatically donate to support the service</small>
         </ion-item>
-
+        </div>
 
       </ion-list>
 
@@ -213,6 +244,9 @@ export default defineComponent({
           reseller_interest: null,
           mint_amount: null,
           private_url: '' // url of private data, accessible to token owners only (simple DRM)
+        },
+        offer: {
+          makeOffer: true,
         }
       }
     }
