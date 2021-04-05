@@ -4,7 +4,7 @@
       <ion-toolbar>
         <ion-title>Add Product</ion-title>
         <ion-buttons slot="end">
-          <ion-button @click="publishProduct()">
+          <ion-button @click="addProduct()">
             <ion-icon slot="icon-only" :icon="bagCheckOutline"></ion-icon>
           </ion-button>
         </ion-buttons>
@@ -27,7 +27,12 @@
         <ion-item>
           <ion-label position="stacked">Image</ion-label>
           <ion-input v-model="product.metadata.image" placeholder="ipfs://"></ion-input>
+          <ion-button slot="end" shape="round" fill="outline" class="ion-margin-top">
+            <ion-icon :icon="cloudUpload"></ion-icon>&nbsp;Upload</ion-button>
         </ion-item>
+        <div v-if="product.metadata.image" class="center ion-padding-vertical">
+          <ion-img class="center preview-image" :src="product.metadata.image"/>
+        </div>
 
         <!--      <ion-item>
                 <ion-label position="stacked" class="ion-padding-bottom">Markdown Description</ion-label>
@@ -42,13 +47,15 @@
 
         <ion-item>
           <ion-label position="stacked">Description</ion-label>
-          <ion-input v-model="product.metadata.description" placeholder=""></ion-input>
+          <ion-textarea v-model="product.metadata.description" placeholder=""></ion-textarea>
         </ion-item>
 
         <ion-item>
           <ion-label position="stacked">Preview Media URL</ion-label>
           <ion-input v-model="product.metadata.animation_url"
                      placeholder="ipfs:// link to video, audio or another file"></ion-input>
+          <ion-button slot="end" shape="round" fill="outline" class="ion-margin-top">
+            <ion-icon :icon="cloudUpload"></ion-icon>&nbsp;Upload</ion-button>
         </ion-item>
 
         <ion-item>
@@ -74,8 +81,7 @@
 
         <ion-item>
           <ion-label>Sell by one<br/>
-          <small>* The program will not ask the buyer for the quantity,
-            but will sell one token at a time.</small></ion-label>
+          <small>* The app will sell one token at a time</small></ion-label>
           <ion-toggle v-model="product.contract.sell_by_one"></ion-toggle>
         </ion-item>
 
@@ -106,14 +112,17 @@
 
 
         <ion-item-divider>
-          <ion-label>Contract</ion-label>
+          <h6>Contract</h6>
         </ion-item-divider>
 
         <ion-item>
-          <ion-label position="stacked">Private URI (Paid Content)</ion-label>
+          <ion-label position="stacked">Private URI of Paid Content</ion-label>
           <ion-input v-model="product.contract.privateUri"
                      placeholder="ipfs://"></ion-input>
           <small>* url to private file, accessible to buyers only (simple DRM)</small>
+          <ion-button slot="end" shape="round" fill="outline" class="ion-margin-top">
+            <ion-icon :icon="cloudUpload"></ion-icon>&nbsp;Upload</ion-button>
+
         </ion-item>
 
         <ion-item>
@@ -129,11 +138,11 @@
 
 
         <ion-item-divider>
-          <ion-label>Offer</ion-label>
+          <h6>Offer</h6>
         </ion-item-divider>
 
         <ion-item>
-          <ion-label>Offer this token for sale</ion-label>
+          <ion-label>List a token for sale</ion-label>
           <ion-toggle v-model="product.offer.makeOffer"></ion-toggle>
         </ion-item>
 
@@ -145,54 +154,61 @@
         </ion-item>
 
         <ion-item>
-          <ion-label>Reserve amount</ion-label>
+          <ion-label>Reserve amount
+            <br/><small>* do not sell specified amount</small>
+          </ion-label>
           <ion-input v-model="product.offer.reserve" class="ion-text-right"
                      type="number" placeholder="0"></ion-input>
-          <small>* do not sell specified amount of tokens</small>
         </ion-item>
 
 
         <ion-item>
-          <ion-label>Enable bulk discounts (from price, in percents)</ion-label>
+          <ion-label>Enable bulk discounts
+            <br/><small>* from price, in percents</small>
+          </ion-label>
           <ion-toggle v-model="product.offer.bulkDiscounts"></ion-toggle>
         </ion-item>
 
         <ion-item v-if="product.offer.bulkDiscounts">
-          <ion-label>10 pieces and more</ion-label>
+          <ion-label class="ion-padding-start">10 pieces and more</ion-label>
           <ion-input v-model="product.offer.discount10"
                      align="right" type="number" placeholder="5"></ion-input>&nbsp;%
         </ion-item>
 
         <ion-item v-if="product.offer.bulkDiscounts">
-          <ion-label>100 pieces and more</ion-label>
+          <ion-label class="ion-padding-start">100 pieces and more</ion-label>
           <ion-input v-model="product.offer.discount100"
                      align="right" type="number" placeholder="10"></ion-input>&nbsp;%
         </ion-item>
 
         <ion-item v-if="product.offer.bulkDiscounts">
-          <ion-label>1000 pieces and more</ion-label>
+          <ion-label class="ion-padding-start">1000 pieces and more</ion-label>
           <ion-input v-model="product.offer.discount1000"
                      align="right" type="number" placeholder="20"></ion-input>&nbsp;%
         </ion-item>
 
 
         <ion-item>
-          <ion-label>Affiliate interest</ion-label>
+          <ion-label>Affiliate interest
+            <br/><small>* how much partners will receive</small>
+          </ion-label>
           <ion-input v-model="product.offer.affiliateInterest" class="ion-text-right"
-                     type="number" placeholder="how much partners will receive"></ion-input>&nbsp;%
+                     type="number" placeholder="0"></ion-input>&nbsp;%
         </ion-item>
 
         <ion-item>
-          <ion-label>Donation</ion-label>
+          <ion-label>Donation
+            <br/><small>* from clear profit</small>
+          </ion-label>
           <ion-input v-model="product.offer.donation" class="ion-text-right"
-                     type="number" placeholder="leave empty for maximum"></ion-input>
-          <small>* How many percents from clear profit you want to automatically donate to support the service</small>
+                     type="number" placeholder="5"></ion-input>&nbsp;%
+
         </ion-item>
         </div>
 
       </ion-list>
 
-      <!--      <ion-button @click="publishProduct()" expand="full" >Publish Product</ion-button>-->
+      <ion-button @click="addProduct()" shape="round" expand="full" >Mint Product</ion-button>
 
     </ion-content>
   </ion-page>
@@ -203,9 +219,9 @@ import {
   IonToggle,  IonItemDivider,  IonInput,  IonList,  IonItem,  IonThumbnail,
   IonSearchbar,  IonButtons,  IonButton,  IonSegment,  IonSegmentButton,
   IonLabel,  IonIcon,  IonAvatar,  IonPage,  IonHeader,  IonToolbar,
-  IonTitle,  IonContent
+  IonTitle,  IonContent, IonTextarea, IonImg,
 } from '@ionic/vue';
-import {bagCheckOutline, createOutline, heart, basket, star, storefront} from 'ionicons/icons';
+import {cloudUpload, bagCheckOutline, createOutline, heart, basket, star, storefront} from 'ionicons/icons';
 import {defineComponent} from 'vue';
 
 export default defineComponent({
@@ -213,7 +229,7 @@ export default defineComponent({
   components: {
     IonToggle, IonItemDivider, IonInput, IonList, IonItem, IonThumbnail, IonSearchbar,
     IonButtons, IonButton, IonSegment, IonSegmentButton, IonLabel, IonIcon, IonAvatar,
-    IonHeader, IonToolbar, IonTitle, IonContent, IonPage
+    IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonTextarea, IonImg,
   },
   data() {
     return {
@@ -242,7 +258,8 @@ export default defineComponent({
           // price100: null,
           // price1000: null,
           reseller_interest: null,
-          mint_amount: null,
+          amount: null,
+          canMintMore: true,
           private_url: '' // url of private data, accessible to token owners only (simple DRM)
         },
         offer: {
@@ -252,14 +269,14 @@ export default defineComponent({
     }
   },
   methods: {
-    async publishProduct() {
+    async addProduct() {
       console.log('publishProduct clicked!', );
 
 
     }
   },
   setup() {
-    return {bagCheckOutline, createOutline, heart, basket, star, storefront};
+    return {cloudUpload, bagCheckOutline, createOutline, heart, basket, star, storefront};
   }
 })
 </script>

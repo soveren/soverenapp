@@ -13,8 +13,10 @@
 - connect Metamask
 
 ##ipfs
-- Upload ipfs file/image
+- Upload ipfs file/image/video/audio component
 - Pin ipfs
+- Preview ipfs file/image/video/audio component
+- Multi file upload / preview
 
 ##Dashboard
 - Sales / intro
