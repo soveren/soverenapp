@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Your Products</ion-title>
+        <ion-title>Inventory</ion-title>
 <!--        <ion-buttons slot="end">
           <ion-button @click="editProfile()">
             <ion-icon slot="icon-only" :icon="createOutline"></ion-icon>
@@ -13,7 +13,7 @@
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Products</ion-title>
+          <ion-title size="large">Inventory</ion-title>
         </ion-toolbar>
       </ion-header>
 

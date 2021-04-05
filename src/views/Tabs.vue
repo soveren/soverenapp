@@ -18,9 +18,9 @@
           <ion-label>Add</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="products" href="/tabs/products">
-          <ion-icon :icon="(currentTab==='products') ? basket : basketOutline" />
-          <ion-label>Products</ion-label>
+        <ion-tab-button tab="inventory" href="/tabs/inventory">
+          <ion-icon :icon="(currentTab==='inventory') ? basket : basketOutline" />
+          <ion-label>Inventory</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="store" href="/tabs/my">

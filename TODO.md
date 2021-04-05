@@ -4,7 +4,8 @@
 - Offer product 
 - Burn 
 - Transfer
-- List published products
+- List published products (inventory)
+- List offers
 - View product
 - Buy product
 - Resale product
