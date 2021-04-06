@@ -1,8 +1,7 @@
-##TODO
+## TODO
 
 - Mint product
-  - back button from preview opens edit mode
-- Offer product 
+- Offer / change offer / remove offer 
 - Burn 
 - Transfer
 - List published products (inventory)
@@ -13,13 +12,16 @@
 
 - connect Metamask
 
-##ipfs
+## Mobile
+- back button from add preview opens edit mode
+
+## ipfs
 - Upload ipfs file/image/video/audio component
 - Pin ipfs
 - Preview ipfs file/image/video/audio component
 - Multi file upload / preview
 
-##Dashboard
+## Dashboard
 - Sales / intro
 - New products / discount
 

@@ -303,6 +303,16 @@ ion-label small, ion-item small {
 }
 
 .preview-image {
-    max-width: 100%;
+    width: 100%;
     /*max-height: 64px;*/
+}
+
+.bulk-discounts {
+    padding: 0;
+    margin-left: 16px;
+    width:96px;
+}
+
+.bulk-discounts ion-col {
+    padding: 0;
 }

@@ -144,7 +144,7 @@ export default defineComponent({
           owned: 1,
           price: 0.01,
           old_price: 0.02, // previous price (when gt current price discount will be shown)
-          bulk_prices: false,
+          bulk_prices: true,
           price10: null,
           price100: null,
           price1000: null,
