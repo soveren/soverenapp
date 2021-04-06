@@ -248,7 +248,7 @@
               </div></ion-col>
               <ion-col class="ion-text-right">
                 <div v-show="product.contract.amount<1001">
-                {{product.contract.amount}} piece{{product.contract.amount>1?'s':''}} left
+                {{product.contract.amount-product.offer.reserve}} piece{{ (product.contract.amount-product.offer.reserve)>1?'s':''}} left
                 </div>
                 <span v-show="product.contract.amount"><ion-icon :icon="basket"></ion-icon> owned {{product.contract.amount>1?product.contract.amount:''}}</span>
               </ion-col>

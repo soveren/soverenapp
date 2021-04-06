@@ -15,7 +15,7 @@
 ## Mobile
 - back button from add preview opens edit mode
 
-## ipfs
+## IPFS
 - Upload ipfs file/image/video/audio component
 - Pin ipfs
 - Preview ipfs file/image/video/audio component
